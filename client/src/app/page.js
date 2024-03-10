@@ -21,7 +21,7 @@ export default function Home() {
       </h1>
       <InputURL />
       <Button variant="outline" onClick={() => showAnalyticsTogle()}>{`${showAnalytics? 'Hide Analytics' : 'Show Analytics'}`}</Button>
-      <div className={`${showAnalytics? 'relative' : 'hidden'} mt-4`}>
+      <div className={`${showAnalytics? 'relative' : 'hidden'} w-screen mt-4`}>
         <DataURLTable />
       </div>
     </main>

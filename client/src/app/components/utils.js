@@ -74,7 +74,7 @@ const DataURLTable = () => {
         </Alert> 
       : null }
 
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center mx-6'>
       <div className='flex items-center justify-start mb-4'>
         <h2 className="scroll-m-20 text-xl font-semibold tracking-tight mx-6">Analyze your URL</h2>
         <Button className='py-4' onClick={() => refreshData()}>
