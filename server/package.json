@@ -4,10 +4,8 @@
   "description": "URL shortener app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
-    "install": "npm install && npm run client-install",
-    "client-install": "cd client && npm install",
-    "build": "cd client && npm run build"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Shluff",
   "license": "ISC",
