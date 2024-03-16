@@ -7,6 +7,10 @@
     "routes": [
       { "src": "/api/(.*)", "dest": "/server/index.js" },
       { "src": "/(.*)", "dest": "/client/$1" }
-    ]
+    ],
+    "env": {
+          "path": "./server",
+          "MONGO_URI": "mongodb+srv://luthfisalis09:Oos2SH9X5SD89qQh@url-data.nmzzqwo.mongodb.net/?retryWrites=true&w=majority&appName=url-data"
+    }
   }
   
