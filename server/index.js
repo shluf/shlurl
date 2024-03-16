@@ -19,6 +19,10 @@ connectToMongDB(process.env.MONGO_URL)
 
 app.use('/url', urlRoute);
 
+app.use('/', (req, res) => {
+    res.status(200).json({"success":"api deployed"})
+})
+
 app.get('/link/:shortId', async (req, res) => {
         const shortId = req.params.shortId;
         const entry = await URL.findOneAndUpdate(
