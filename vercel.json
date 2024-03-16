@@ -5,7 +5,14 @@
       { "src": "/server/index.js", "use": "@vercel/node" }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/server/index.js" },
+      { 
+        "src": "/api/(.*)", 
+        "dest": "/server/index.js", 
+        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        } 
+      },
       { "src": "/(.*)", "dest": "/client/$1" }
     ],
     "env": {
