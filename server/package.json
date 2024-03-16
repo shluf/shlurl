@@ -7,6 +7,11 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "builds": [{
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
   "author": "Shluff",
   "license": "ISC",
   "dependencies": {
