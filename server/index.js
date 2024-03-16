@@ -19,8 +19,12 @@ connectToMongDB(process.env.MONGO_URL)
 
 app.use('/url', urlRoute);
 
-app.get('/', (req, res) => {
+app.use('/test', (req, res) => {
     res.status(200).json({"success":"api deployed"})
+})
+
+app.get('/', (req, res) => {
+    res.status(200).json({"success":"get from /"})
 })
 
 app.get('/link/:shortId', async (req, res) => {
