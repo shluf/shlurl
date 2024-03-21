@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const urlRoute = require('./url/routes/url');
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
