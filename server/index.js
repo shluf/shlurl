@@ -17,13 +17,13 @@ connectToMongDB(process.env.MONGO_URL)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
-app.use('/', urlRoute);
+app.use('/url', urlRoute);
 
 
 /////////////// Function for testing ///////////////////
-// app.use('/', (req, res) => {
-//     res.status(200).json({"success":"api deployed"})
-// })
+app.use('/status', (req, res) => {
+    res.status(200).json({"success":"api deployed"})
+})
 
 // app.get('/', (req, res) => {
 //     res.status(200).json({"success":"get from /"})
