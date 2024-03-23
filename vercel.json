@@ -12,9 +12,9 @@
     ],
     "routes": [
       { 
-        "src": "/in/(.*)", 
+        "src": "/server/(.*)", 
         "middlewareRawSrc": ["/in"],
-        "middlewarePath": "/server/index",
+        "middlewarePath": "index",
         "continue": true
       },
       { 
