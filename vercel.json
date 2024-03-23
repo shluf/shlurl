@@ -13,10 +13,9 @@
     "routes": [
       { 
         "src": "/in/(.*)", 
-        "dest": "/server/index.js",
-        "headers": {
-            "Access-Control-Allow-Origin": "*"
-        }
+        "middlewareRawSrc": ["/in"],
+        "middlewarePath": "/server/index",
+        "continue": true
       },
       { 
         "src": "/(.*)", 
