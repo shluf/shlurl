@@ -12,10 +12,8 @@
     ],
     "routes": [
       { 
-        "src": "/server/(.*)", 
-        "middlewareRawSrc": ["/server"],
-        "middlewarePath": "index",
-        "continue": true
+        "src": "/in/(.*)", 
+        "dest": "/server/index.js"
       },
       { 
         "src": "/(.*)", 
