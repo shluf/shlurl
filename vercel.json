@@ -14,7 +14,7 @@
       { 
         "src": "/server/(.*)", 
         "middlewareRawSrc": ["/in"],
-        "middlewarePath": "index",
+        "middlewarePath": "index.js",
         "continue": true
       },
       { 
