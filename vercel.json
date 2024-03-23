@@ -13,7 +13,10 @@
     "routes": [
       { 
         "src": "/in/(.*)", 
-        "dest": "/server/index.js"
+        "dest": "/server/index.js",
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
       },
       { 
         "src": "/(.*)", 
