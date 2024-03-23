@@ -25,6 +25,10 @@ app.use('/status', (req, res) => {
     res.status(200).json({"success":"api deployed"})
 })
 
+app.use('/', (req, res) => {
+    res.status(200).json({"success":"use from /"})
+})
+
 app.get('/', (req, res) => {
     res.status(200).json({"success":"get from /"})
 })
