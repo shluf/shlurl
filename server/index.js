@@ -21,21 +21,15 @@ app.use('/in/url', urlRoute);
 
 
 /////////////// Function for testing ///////////////////
+
 app.use('/in/status', (req, res) => {
     res.status(200).json({"success":"api deployed"})
 })
 
-// app.use('/', (req, res) => {
-//    res.status(200).json({"success":"use from /"})
-// })
-
-app.get('/', (req, res) => {
-    res.status(200).json({"success":"get from /"})
-})
 /////////////////////////////////////////////////////////
 
 
-app.get('/in/link/:shortId', async (req, res) => {
+app.get('/in/:shortId', async (req, res) => {
         const shortId = req.params.shortId;
         const entry = await URL.findOneAndUpdate(
             { shortId }, 

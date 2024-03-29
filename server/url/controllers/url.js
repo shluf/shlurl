@@ -24,7 +24,7 @@ generateNewShortURL = async (req, res) => {
 
     const shortID = customUrl || nanoid(3) || nanoid(6);
     const rootURL = process.env.URL;
-    const shortURL = rootURL + 'link/' + shortID;
+    const shortURL = rootURL + 'in/' + shortID;
     
     try {
         await URL.create({
