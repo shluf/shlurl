@@ -24,7 +24,7 @@ const InputURL = () => {
     const handleShortenClick = async (e) => {
       e.preventDefault();
   
-      const response = await fetch(`${process.env.SERVER_PATH}/url/new`, {
+      const response = await fetch(`${process.env.SERVER_PATH}url/new`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,48 +61,52 @@ const InputURL = () => {
 
     
   return (
-      <>
-      {status === 'success' ? 
+    <>
+      {status === "success" ? (
         <Alert className="fixed top-6 w-11/12 content-center">
           <CheckCircle className="h-4 w-4" />
-              <AlertTitle>Berhasil</AlertTitle>
-              <AlertDescription>
-                  Short URL baru telah berhasil dibuat!
-              </AlertDescription>
-        </Alert> 
-      : status === 'failed' ? 
+          <AlertTitle>Berhasil</AlertTitle>
+          <AlertDescription>
+            Short URL baru telah berhasil dibuat!
+          </AlertDescription>
+        </Alert>
+      ) : status === "failed" ? (
         <Alert className="fixed top-6 w-11/12 content-center">
           <SlashSquare className="h-4 w-4" />
-              <AlertTitle>Gagal</AlertTitle>
-              <AlertDescription>
-                  Masukan URL dengan format yang benar!
-              </AlertDescription>
-        </Alert> 
-      : null }
-      
-      <div className="flex w-full justify-center py-10 items-end gap-2">
-        <div className="flex flex-col">
-          <Label htmlFor="url">URL</Label>
-          <Input 
-            type="text"
-            id="url"
-            placeholder="Masukan link url"
-            value={url}
-            onChange={handleUrlChange} 
-          />
-        </div>
-        <div className="flex flex-col">
-          <Label className htmlFor="customShortLink">Custom</Label>
-          <Input
-            type="text"
-            id="customShortLink"
-            placeholder="Kreasikan link anda (opsional)"
-            value={customShortLink}
-            onChange={handleCustomShortLinkChange}
+          <AlertTitle>Gagal</AlertTitle>
+          <AlertDescription>
+            Masukan URL dengan format yang benar!
+          </AlertDescription>
+        </Alert>
+      ) : null}
+
+      <div className="flex sm:flex-row sm:items-end flex-col w-full justify-center py-10 gap-2">
+        <div className="flex flex-row gap-2 items-center justify-center">
+          <div className="flex flex-col">
+            <Label htmlFor="url">URL</Label>
+            <Input
+              type="text"
+              id="url"
+              placeholder="Masukan link url"
+              value={url}
+              onChange={handleUrlChange}
             />
+          </div>
+          <div className="flex flex-col">
+            <Label className htmlFor="customShortLink">
+              Custom
+            </Label>
+            <Input
+              type="text"
+              id="customShortLink"
+              placeholder="Kreasikan link anda (opsional)"
+              value={customShortLink}
+              onChange={handleCustomShortLinkChange}
+            />
+          </div>
         </div>
-        <Button type="submit" onClick={handleShortenClick}>Shorten</Button>
-        <Button type="submit" onClick={handlePaste}>Paste</Button>
+        <Button className="block sm:px-4 px-12 mt-5" type="submit" onClick={handleShortenClick}>Shorten</Button>
+        <Button className="sm:px-4 px-12" type="submit" onClick={handlePaste}>Paste</Button>
       </div>
     </>
   )
