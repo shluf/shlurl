@@ -17,11 +17,11 @@ connectToMongDB(process.env.MONGO_URL)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
-app.use('/url', urlRoute);
+app.use('/in/url', urlRoute);
 
 
 /////////////// Function for testing ///////////////////
-app.use('/status', (req, res) => {
+app.use('/in/status', (req, res) => {
     res.status(200).json({"success":"api deployed"})
 })
 
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 /////////////////////////////////////////////////////////
 
 
-app.get('/link/:shortId', async (req, res) => {
+app.get('/in/link/:shortId', async (req, res) => {
         const shortId = req.params.shortId;
         const entry = await URL.findOneAndUpdate(
             { shortId }, 
