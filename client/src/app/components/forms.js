@@ -24,7 +24,7 @@ const InputURL = () => {
     const handleShortenClick = async (e) => {
       e.preventDefault();
   
-      const response = await fetch('http://localhost:8001/url/new', {
+      const response = await fetch(`${process.env.SERVER_PATH}/url/new`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

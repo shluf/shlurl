@@ -21,7 +21,7 @@
       }
     ],
     "env": {
-      "SERVER_PATH": "https://shlurl.vercel.app/in/",
+      "SERVER_PATH": "https://shlurl.vercel.app/in",
       "MONGO_URI": "mongodb+srv://luthfisalis09:Oos2SH9X5SD89qQh@url-data.nmzzqwo.mongodb.net/?retryWrites=true&w=majority&appName=url-data"
     }
   }
