@@ -22,7 +22,7 @@ const DataURLTable = () => {
 
     const fetchURLData = async () => {
       try {
-        const response = await fetch(`${process.env.SERVER_PATH}url/data`);
+        const response = await fetch(`${process.env.SERVER_PATH}in/url/data`);
         const data = await response.json();
         setDataURL(data);
         console.log(data)
@@ -41,7 +41,7 @@ const DataURLTable = () => {
 
     const deleteData = async (dataId) => {
       try {
-        const res = await fetch(`${process.env.SERVER_PATH}url/${dataId}`, {
+        const res = await fetch(`${process.env.SERVER_PATH}in/url/${dataId}`, {
           method: 'DELETE',
         });
   
