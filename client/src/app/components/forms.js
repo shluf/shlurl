@@ -1,65 +1,63 @@
-'use client'
+"use client";
 
-import { CheckCircle, SlashSquare } from "lucide-react"
-import React, { useState } from 'react'
+import { CheckCircle, SlashSquare } from "lucide-react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const InputURL = () => {
-    const [status, setStatus] = useState('')
-    const [url, setUrl] = useState('');
-    const [customShortLink, setCustomShortLink] = useState('');
+  const [status, setStatus] = useState("");
+  const [url, setUrl] = useState("");
+  const [customShortLink, setCustomShortLink] = useState("");
 
-    const handleUrlChange = (e) => {
-      setUrl(e.target.value);
-    };
+  const handleUrlChange = (e) => {
+    setUrl(e.target.value);
+  };
 
-    const handleCustomShortLinkChange = (e) => {
-        setCustomShortLink(e.target.value);
-      };
-  
-    const handleShortenClick = async (e) => {
-      e.preventDefault();
-  
-      const response = await fetch(`https://shlurl.vercel.app/in/url/new`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ 
-            'url': url,
-            'customUrl': customShortLink
-        }),
-      });
-      
-      if (response.ok) {
-        setStatus('success')
-        setTimeout(() => {
-          setStatus('null');
-          }, 3000);
-      } else {
-        setStatus('failed')
-        setTimeout(() => {
-          setStatus('null');
-          }, 3000);
-        console.error('Failed to shorten URL');
-      }
-    };
-  
-    const handlePaste = async () => {
-        try {
-          const text = await navigator.clipboard.readText();
-          setUrl(text);
-          console
-        } catch (err) {
-          console.error('Failed to read clipboard: ', err);
-        }
-      };
+  const handleCustomShortLinkChange = (e) => {
+    setCustomShortLink(e.target.value);
+  };
 
-    
+  const handleShortenClick = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`https://shlurl.vercel.app/in/url/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url: url,
+        customUrl: customShortLink,
+      }),
+    });
+
+    if (response.ok) {
+      setStatus("success");
+      setTimeout(() => {
+        setStatus("null");
+      }, 3000);
+    } else {
+      setStatus("failed");
+      setTimeout(() => {
+        setStatus("null");
+      }, 3000);
+      console.error("Failed to shorten URL");
+    }
+  };
+
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setUrl(text);
+      console;
+    } catch (err) {
+      console.error("Failed to read clipboard: ", err);
+    }
+  };
+
   return (
     <>
       {status === "success" ? (
@@ -105,11 +103,19 @@ const InputURL = () => {
             />
           </div>
         </div>
-        <Button className="block sm:px-4 px-12 mt-5" type="submit" onClick={handleShortenClick}>Shorten</Button>
-        <Button className="sm:px-4 px-12" type="submit" onClick={handlePaste}>Paste</Button>
+        <Button
+          className="block sm:px-4 px-12 mt-5"
+          type="submit"
+          onClick={handleShortenClick}
+        >
+          Shorten
+        </Button>
+        <Button className="sm:px-4 px-12" type="submit" onClick={handlePaste}>
+          Paste
+        </Button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default InputURL
+export default InputURL;
